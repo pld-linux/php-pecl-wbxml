@@ -1,18 +1,18 @@
 #
 # TODO:
-# - compare with php-wbxml.spe
+# - compare with php-wbxml.spec
 #
 %define		_modname	wbxml
 %define		_status		stable
 Summary:	WBXML to XML conversion
 Summary(pl.UTF-8):	Konwersja WBXML do XML
 Name:		php-pecl-%{_modname}
-Version:	1.0.2
+Version:	1.0.3
 Release:	1
 License:	PHP
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{_modname}-%{version}.tgz
-# Source0-md5:	cc38b8388e05153fd0e3b01c713c3e05
+# Source0-md5:	9c6a4d347f9a2b4002ea0c83e4b14082
 URL:		http://pecl.php.net/package/wbxml/
 BuildRequires:	php-devel >= 3:5.0.0
 BuildRequires:	rpmbuild(macros) >= 1.344
