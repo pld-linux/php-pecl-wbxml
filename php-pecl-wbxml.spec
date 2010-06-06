@@ -2,40 +2,39 @@
 # TODO:
 # - compare with php-wbxml.spec
 #
-%define		_modname	wbxml
-%define		_status		stable
+%define		modname	wbxml
+%define		status	stable
 Summary:	WBXML to XML conversion
 Summary(pl.UTF-8):	Konwersja WBXML do XML
-Name:		php-pecl-%{_modname}
+Name:		php-pecl-%{modname}
 Version:	1.0.3
 Release:	2
 License:	PHP
 Group:		Development/Languages/PHP
-Source0:	http://pecl.php.net/get/%{_modname}-%{version}.tgz
+Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
 # Source0-md5:	9c6a4d347f9a2b4002ea0c83e4b14082
 URL:		http://pecl.php.net/package/wbxml/
-BuildRequires:	php-devel >= 3:5.0.0
+BuildRequires:	libwbxml-devel
+BuildRequires:	php-devel >= 4:5.0.4
 BuildRequires:	rpmbuild(macros) >= 1.344
-BuildRequires:	wbxml2-devel
 %{?requires_php_extension}
-Requires:	php-common >= 4:5.0.4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 This extension provides WBXML (Wireless Binary XML) conversion
 capabilities using the libwbxml library.
 
-In PECL status of this extension is: %{_status}.
+In PECL status of this extension is: %{status}.
 
 %description -l pl.UTF-8
 Rozszerzenie to udostępnia możliwość konwersji WBXML (Wireless Binary
 XML) do XML za pomocą biblioteki libwbxml.
 
-To rozszerzenie ma w PECL status: %{_status}.
+To rozszerzenie ma w PECL status: %{status}.
 
 %prep
-%setup -q -c
-mv %{_modname}-%{version}/* .
+%setup -qc
+mv %{modname}-%{version}/* .
 
 %build
 phpize
@@ -47,11 +46,11 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{php_sysconfdir}/conf.d
 
 %{__make} install \
-	INSTALL_ROOT=$RPM_BUILD_ROOT \
-	EXTENSION_DIR=%{php_extensiondir}
-cat <<'EOF' > $RPM_BUILD_ROOT%{php_sysconfdir}/conf.d/%{_modname}.ini
-; Enable %{_modname} extension module
-extension=%{_modname}.so
+	EXTENSION_DIR=%{php_extensiondir} \
+	INSTALL_ROOT=$RPM_BUILD_ROOT
+cat <<'EOF' > $RPM_BUILD_ROOT%{php_sysconfdir}/conf.d/%{modname}.ini
+; Enable %{modname} extension module
+extension=%{modname}.so
 EOF
 
 %clean
@@ -68,5 +67,5 @@ fi
 %files
 %defattr(644,root,root,755)
 %doc CREDITS README wbxml.php
-%config(noreplace) %verify(not md5 mtime size) %{php_sysconfdir}/conf.d/%{_modname}.ini
-%attr(755,root,root) %{php_extensiondir}/%{_modname}.so
+%config(noreplace) %verify(not md5 mtime size) %{php_sysconfdir}/conf.d/%{modname}.ini
+%attr(755,root,root) %{php_extensiondir}/%{modname}.so
