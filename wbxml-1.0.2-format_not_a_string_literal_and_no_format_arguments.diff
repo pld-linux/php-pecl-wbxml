@@ -1,0 +1,20 @@
+--- wbxml.c	2009-01-29 20:13:57.000000000 +0100
++++ wbxml.c.oden	2009-02-25 12:03:10.000000000 +0100
+@@ -204,7 +204,7 @@ PHP_FUNCTION(wbxml_encode)
+ 		RETVAL_STRINGL(wbxml, wbxml_len, 1);
+ 	}
+ 	else {
+-		zend_error(E_WARNING, (const char *)wbxml_errors_string(result));
++		zend_error(E_WARNING, "%s", (const char *)wbxml_errors_string(result));
+ 		RETVAL_NULL();
+ 	}
+ 
+@@ -238,7 +238,7 @@ PHP_FUNCTION(wbxml_decode)
+ 		RETVAL_STRING(xml, 1);
+ 	}
+ 	else {
+-		zend_error(E_WARNING, (const char *)wbxml_errors_string(result));
++		zend_error(E_WARNING, "%s", (const char *)wbxml_errors_string(result));
+ 		RETVAL_NULL();
+ 	}
+ 
