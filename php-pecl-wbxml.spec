@@ -9,7 +9,7 @@ Summary:	WBXML to XML conversion
 Summary(pl.UTF-8):	Konwersja WBXML do XML
 Name:		%{php_name}-pecl-%{modname}
 Version:	1.0.3
-Release:	5
+Release:	6
 License:	PHP
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
@@ -17,10 +17,11 @@ Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
 Patch0:		wbxml-1.0.2-format_not_a_string_literal_and_no_format_arguments.diff
 Patch1:		wbxml-1.0.3-expat_fix.diff
 URL:		http://pecl.php.net/package/wbxml/
-BuildRequires:	libwbxml-devel
 BuildRequires:	%{php_name}-devel >= 4:5.0.4
+BuildRequires:	libwbxml-devel
 BuildRequires:	rpmbuild(macros) >= 1.650
 %{?requires_php_extension}
+Provides:	php(%{modname}) = %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
