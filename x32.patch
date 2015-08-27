@@ -1,0 +1,20 @@
+--- php55-pecl-wbxml-1.0.3/config.m4~	2009-02-22 12:30:57.000000000 +0100
++++ php55-pecl-wbxml-1.0.3/config.m4	2015-08-27 09:43:55.951434326 +0200
+@@ -24,7 +24,7 @@
+ 
+   AC_MSG_CHECKING([for the location of libwbxml2])
+   for i in $PHP_WBXML /usr/local /usr; do
+-    for j in $PHP_LIBDIR lib64 lib; do
++    for j in $PHP_LIBDIR lib64 libx32 lib; do
+       if test -f $i/$j/libwbxml2.$SHLIB_SUFFIX_NAME; then
+         WBXML_DIR=$i
+         WBXML_LIBDIR=$i/$j
+@@ -46,7 +46,7 @@
+   PHP_ADD_INCLUDE($WBXML_DIR/include)
+ 
+   for i in $PHP_LIBEXPAT_DIR /usr/local /usr; do
+-    for j in $PHP_LIBDIR lib64 lib; do
++    for j in $PHP_LIBDIR lib64 libx32 lib; do
+       if test -f $i/$j/libexpat.$SHLIB_SUFFIX_NAME; then
+         EXPAT_DIR=$i
+         EXPAT_LIBDIR=$i/$j

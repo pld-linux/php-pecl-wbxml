@@ -17,6 +17,7 @@ Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
 Patch0:		wbxml-1.0.2-format_not_a_string_literal_and_no_format_arguments.diff
 Patch1:		wbxml-1.0.3-expat_fix.diff
 Patch2:		libwbxml.patch
+Patch3:		x32.patch
 URL:		http://pecl.php.net/package/wbxml/
 BuildRequires:	%{php_name}-devel >= 4:5.0.4
 BuildRequires:	libwbxml-devel
@@ -44,6 +45,7 @@ mv %{modname}-%{version}/* .
 %patch0 -p0
 %patch1 -p0
 %patch2 -p1
+%patch3 -p1
 
 %build
 export CFLAGS="%{rpmcflags} `pkg-config --cflags libwbxml2`"
