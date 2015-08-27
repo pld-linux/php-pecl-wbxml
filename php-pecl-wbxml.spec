@@ -20,7 +20,7 @@ Patch2:		libwbxml.patch
 Patch3:		x32.patch
 URL:		http://pecl.php.net/package/wbxml/
 BuildRequires:	%{php_name}-devel >= 4:5.0.4
-BuildRequires:	libwbxml-devel
+BuildRequires:	libwbxml-devel >= 0.11
 BuildRequires:	rpmbuild(macros) >= 1.650
 %{?requires_php_extension}
 Provides:	php(%{modname}) = %{version}
