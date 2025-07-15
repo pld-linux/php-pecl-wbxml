@@ -42,10 +42,10 @@ To rozszerzenie ma w PECL status: %{status}.
 %prep
 %setup -qc
 mv %{modname}-%{version}/* .
-%patch0 -p0
-%patch1 -p0
-%patch2 -p1
-%patch3 -p1
+%patch -P0 -p0
+%patch -P1 -p0
+%patch -P2 -p1
+%patch -P3 -p1
 
 %build
 export CFLAGS="%{rpmcflags} `pkg-config --cflags libwbxml2`"
